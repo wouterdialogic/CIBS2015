@@ -1,0 +1,63 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.9
+-- http://www.phpmyadmin.net
+--
+-- Machine: localhost
+-- Gegenereerd op: 21 mei 2015 om 09:49
+-- Serverversie: 5.6.20
+-- PHP-versie: 5.5.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Databank: `surveys`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `elements`
+--
+
+CREATE TABLE IF NOT EXISTS `elements` (
+`id` int(8) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `content` text,
+  `order` int(8) DEFAULT NULL,
+  `page` int(8) DEFAULT NULL,
+  `parent` int(8) DEFAULT NULL,
+  `group` int(8) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `elements`
+--
+
+INSERT INTO `elements` (`id`, `title`, `name`, `type`, `content`, `order`, `page`, `parent`, `group`) VALUES
+(1, 'vraag 1', 'vraag1', 'question', 'Wat voor kleur is de lucht?', 1, 0, 0, 0),
+(2, 'vraag 2', 'vraag2', 'question', 'wat voor kleur is het gras?', 2, 0, 0, 0),
+(3, 'vraag 1', 'vraag1', 'question', 'wat voor kleur is de lucht?', NULL, NULL, NULL, NULL),
+(4, 'vraag 2 ', 'vraag2', 'question', 'wat voor kleur is het gras?', NULL, NULL, NULL, NULL);
+
+--
+-- Indexen voor geëxporteerde tabellen
+--
+
+--
+-- Indexen voor tabel `elements`
+--
+ALTER TABLE `elements`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT voor geëxporteerde tabellen
+--
+
+--
+-- AUTO_INCREMENT voor een tabel `elements`
+--
+ALTER TABLE `elements`
+MODIFY `id` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
