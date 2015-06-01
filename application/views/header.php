@@ -30,7 +30,7 @@
 		  li { margin: 5px; padding: 5px; width: 150px; }
 	  </style>
 	  <script>
-		  $(function() {
+		  /*$(function() {
 			  $( "#sortable" ).sortable({
 				  revert: true
 			  });
@@ -45,26 +45,57 @@
 			  $( "#sortable2" ).sortable({
 				  revert: true
 			  });
-			  $( "#draggable" ).draggable({
+			  $( "#draggable2" ).draggable({
 				  connectToSortable: "#sortable2",
 				  helper: "clone",
 				  revert: "invalid"
 			  });
 			  $( "ul, li" ).disableSelection();
-		  });
+		  });*/
 		  $(function() {
 			  $( "#sortable3" ).sortable({
-				  revert: true
+				  revert: true,
+				  //stop: function () {
+				//	  alert("Hello! Normal ELEMENT!");
+				//  }
+				  stop: function () {
+					  $("#dragtext").html("<p>Drag me around</p>Drag stopped!");
+				 
+					  // var IDs = $("#mydiv span[id]")         // find spans with ID attribute
+					  var IDs = $(".ui-state-default, .ui-draggable")         // find spans with ID attribute
+					  .map(function() { return this.id; }) // convert to set of IDs
+					  .get(); // convert to instance of Array (optional)
+					  //var IDs = [{"id":"197","category":"Damskie"},{"id":"198","category":"M\u0119skie"}];
+					  //nieuwe regel: <li class="ui-state-highlight ui-draggable ui-draggable-handle" style="width: 150px; height: 32px;">Drag me down</li>
+					  
+					  
+					  $("#dragtext").html("<p>Values: "+IDs+"</p>");
+					  //console.log("hallo"+IDs);
+					  $.each(IDs, function(index, val) {
+						  console.log(val.category);
+						  $("#dragtext").append(val+"\n");
+						  
+					  });
+						
+				 }
+				  
 			  });
 			  $( "#draggable3" ).draggable({
 				  connectToSortable: "#sortable3",
 				  helper: "clone",
-				  revert: "invalid"
+				  revert: "invalid",
+				  //stop: function () {
+					//  $("#drag x").html("<p>Drag me around</p>Drag stopped!");
+				  //}
+				  //stop: function( event, ui ) {}
 			  });
 			  $( "ul, li" ).disableSelection();
 		  });
+		  /*$( ".selector" ).draggable({
+			  stop: function( event, ui ) {}
+		  });*/
+		  
 	  </script>		
 		
-	
 </head>
 <body>

@@ -9,7 +9,23 @@ class Index extends CI_Controller {
 		
         public function index()
 		{
+			echo "index";
 
+		
+			$data['surveys'] = $this->elements_model->get_elements();
+			$data['title'] = 'Elements';
+			
+			//foreach ($data['artikelen'] as $key => $artikel) {
+			$this->load->view('header', $data);
+			$this->load->view('elements', $data);
+			$this->load->view('footer');
+			
+			
+		}
+        public function all()
+		{
+			echo "helllo ALL";
+			
 			$data['surveys'] = $this->elements_model->get_elements();
 			$data['title'] = 'Elements';
 			
@@ -21,12 +37,25 @@ class Index extends CI_Controller {
 			
 		}
 
+        public function sortable()
+		{
+			echo "helllo SORTABLE IN INDEX";
+			$data['surveys'] = $this->elements_model->get_elements();
+			$data['title'] = 'Elements';
+			
+			//foreach ($data['artikelen'] as $key => $artikel) {
+			$this->load->view('header', $data);
+			$this->load->view('playground', $data);
+			$this->load->view('footer');
+			
+			
+		}
+
         public function view($slug = NULL)
         {
                 $data['element'] = $this->index_model->elements_model($slug);
         }
 		
 }
-
 
 ?>

@@ -49,10 +49,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
 $route['index/(:any)'] = 'index';
+//dit werkt, verwijst vanuit http://localhost/git/cibs2015/index.php/index/sortable naar class index function sortable
+$route['index/sortable'] = 'index/sortable';
+
+//dit werkt, verwijst vanuit http://localhost/git/cibs2015/index.php/index/sortable2 naar class index function all
+$route['index/sortable2'] = 'index/all';
+
+//dit werkt, verwijst vanuit http://localhost/git/cibs2015/index.php/sortable3 naar class Sortable3 function index
+//dit werkt NIET als je deze class in het bestand index.php zet onder de andere class (index)
+//geleerd: zet 1 class neer per .php bestand
+$route['sortable3'] = 'sortable3';
+
+$route['playground'] = 'playground';
+
+
+$route['(:any)'] = 'playground';
+$route['(:any)'] = 'index';
+$route['(:any)'] = 'playground';
+/*
+$route['index/(:any)'] = 'index';
+$route['playground/(:any)'] = 'playground2';
 $route['index'] = 'index';
 $route['(:any)'] = 'index';
 $route['default_controller'] = 'index';
+
+$route['playground'] = 'playgroun22d';
+$route['(:any)'] = 'playground';
+$route['default_controller'] = 'playground';
+*/
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
