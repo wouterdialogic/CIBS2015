@@ -56,6 +56,7 @@ $route['index/sortable'] = 'index/sortable';
 
 //dit werkt, verwijst vanuit http://localhost/git/cibs2015/index.php/index/sortable2 naar class index function all
 $route['index/sortable2'] = 'index/all';
+$route['index/jquery'] = 'index/jquery';
 
 //dit werkt, verwijst vanuit http://localhost/git/cibs2015/index.php/sortable3 naar class Sortable3 function index
 //dit werkt NIET als je deze class in het bestand index.php zet onder de andere class (index)
@@ -63,6 +64,7 @@ $route['index/sortable2'] = 'index/all';
 $route['sortable3'] = 'sortable3';
 
 $route['playground'] = 'playground';
+
 
 
 $route['(:any)'] = 'playground';

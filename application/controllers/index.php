@@ -12,8 +12,8 @@ class Index extends CI_Controller {
 			echo "index";
 
 		
-			$data['surveys'] = $this->elements_model->get_elements();
-			$data['title'] = 'Elements';
+			//$data['surveys'] = $this->elements_model->get_elements();
+			$data['title'] = 'ZElements';
 			
 			//foreach ($data['artikelen'] as $key => $artikel) {
 			$this->load->view('header', $data);
@@ -41,14 +41,24 @@ class Index extends CI_Controller {
 		{
 			echo "helllo SORTABLE IN INDEX";
 			$data['surveys'] = $this->elements_model->get_elements();
-			$data['title'] = 'Elements';
+			$data['title'] = 'jquery';
 			
 			//foreach ($data['artikelen'] as $key => $artikel) {
 			$this->load->view('header', $data);
-			$this->load->view('playground', $data);
+			$this->load->view('jquery', $data);
 			$this->load->view('footer');
+		}
+
+        public function jquery()
+		{
+			echo "helllo JQUERY IN INDEX";
+			//$data['surveys'] = $this->elements_model->get_elements();
+			$data['title'] = 'Jquery test page';
 			
-			
+			//foreach ($data['artikelen'] as $key => $artikel) {
+			$this->load->view('jqueryheader', $data);
+			$this->load->view('jquery', $data);
+			$this->load->view('footer');
 		}
 
         public function view($slug = NULL)
